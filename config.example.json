@@ -1,0 +1,133 @@
+{
+  "filters": {
+    "exclude_keywords": [],
+    "handles": [],
+    "include_keywords": [],
+    "max_price": null,
+    "min_price": null,
+    "product_types": [],
+    "variants": [
+      "49067158765854",
+      "47574005580062",
+      "48832709755166",
+      "47751139688734",
+      "47750897074462",
+      "48833932427550"
+    ],
+    "vendors": []
+  },
+  "interval_seconds": 60,
+  "jitter_seconds": 15,
+  "locale": "zh",
+  "notify": {
+    "feishu": {
+      "enabled": false,
+      "webhook": "https://open.feishu.cn/open-apis/bot/v2/hook/xxxxxxxx-xxxx",
+      "secret": ""
+    },
+    "qq_email": {
+      "auth_code": "",
+      "enabled": false,
+      "from_name": "商品监控",
+      "smtp_host": "smtp.qq.com",
+      "smtp_port": 465,
+      "to": [
+        "your_qq@qq.com"
+      ],
+      "username": "your_qq@qq.com"
+    },
+    "wecom": {
+      "enabled": false,
+      "webhook": "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxx"
+    },
+    "pushplus": {
+      "enabled": false,
+      "token": "",
+      "topic": ""
+    },
+    "serverchan": {
+      "enabled": false,
+      "sendkey": "SCTxxxx"
+    },
+    "local": {
+      "enabled": false
+    },
+    "bark": {
+      "enabled": false,
+      "device_key": "你的Bark Key",
+      "server": "https://api.day.app",
+      "group": "商品监控",
+      "level": "timeSensitive"
+    },
+    "ntfy": {
+      "enabled": false,
+      "topic": "tobacco-请改成随机串",
+      "server": "https://ntfy.sh",
+      "priority": 4,
+      "tags": [
+        "bell"
+      ]
+    },
+    "telegram": {
+      "enabled": false,
+      "bot_token": "123456:ABC-DEF",
+      "chat_id": "123456789",
+      "api_base": "https://api.telegram.org"
+    },
+    "discord": {
+      "enabled": false,
+      "webhook": "https://discord.com/api/webhooks/xxx/yyy"
+    },
+    "dingtalk": {
+      "enabled": false,
+      "webhook": "https://oapi.dingtalk.com/robot/send?access_token=xxx",
+      "secret": ""
+    }
+  },
+  "notify_on": {
+    "new_product": true,
+    "price_set": true,
+    "restock": true,
+    "sold_out": false
+  },
+  "page_delay_seconds": 8,
+  "site": "https://tobaccolifestyle.com",
+  "watchlist": [
+    {
+      "handle": "塞缪尔-加维斯-满的-弗吉尼亚-砖状-250克盒",
+      "title": "塞缪尔和 加维斯 - 满的 弗吉尼亚 砖状 250克装",
+      "url": "https://tobaccolifestyle.com/zh/products/塞缪尔-加维斯-满的-弗吉尼亚-砖状-250克盒?variant=49067158765854",
+      "vid": "49067158765854"
+    },
+    {
+      "handle": "塞缪尔-加维斯-sams-切片250克装",
+      "title": "塞缪尔和 加维斯 - 山姆斯 切片 250克装",
+      "url": "https://tobaccolifestyle.com/zh/products/塞缪尔-加维斯-sams-切片250克装?variant=47574005580062",
+      "vid": "47574005580062"
+    },
+    {
+      "handle": "弗里堡特雷耶埃文斯混合物-50-克",
+      "title": "Fribourg & Treyer - 埃文斯混合 50 克",
+      "url": "https://tobaccolifestyle.com/zh/products/弗里堡特雷耶埃文斯混合物-50-克?variant=48832709755166",
+      "vid": "48832709755166"
+    },
+    {
+      "handle": "彼得森海军切片-50克",
+      "title": "彼得森 - 海军 切片 豪华海军卷 50克",
+      "url": "https://tobaccolifestyle.com/zh/products/彼得森海军切片-50克?variant=47751139688734",
+      "vid": "47751139688734"
+    },
+    {
+      "handle": "盾牌-navy-de-luxe-50-gram",
+      "title": "盾牌 - 海军蓝豪华版 50 克",
+      "url": "https://tobaccolifestyle.com/zh/products/盾牌-navy-de-luxe-50-gram?variant=47750897074462",
+      "vid": "47750897074462"
+    },
+    {
+      "handle": "罗伯特-麦康奈尔黑鹦鹉特切100克",
+      "title": "罗伯特 麦康奈尔 黑鹦鹉特切肉 100克",
+      "url": "https://tobaccolifestyle.com/zh/products/罗伯特-麦康奈尔黑鹦鹉特切100克?variant=48833932427550",
+      "vid": "48833932427550"
+    }
+  ]
+}
