@@ -1,0 +1,32 @@
+name: keepalive
+
+# 公开仓库的定时工作流若连续 60 天没有仓库活动，会被 GitHub 自动停用。
+# 本工作流每月提交一个时间戳文件，保持仓库活跃，避免监控悄无声息地停掉。
+
+on:
+  schedule:
+    - cron: "0 4 1 * *" # 每月 1 日 12:00（北京时间）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: keepalive
+  cancel-in-progress: false
+
+jobs:
+  touch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 写入时间戳并提交
+        run: |
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > .keepalive
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .keepalive
+          git commit -m "chore: keepalive $(date -u +%F)" || echo "无变化，跳过提交"
+          git push
