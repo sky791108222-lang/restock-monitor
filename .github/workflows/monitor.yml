@@ -1,0 +1,56 @@
+name: restock-monitor
+
+# 说明：GitHub 定时任务最小粒度是 5 分钟，无法直接做到 1 分钟。
+# 这里用一个 job 连续跑 4 分钟的循环，每 60 秒查一次，
+# 相邻 job 首尾相接，等效检查频率约 1 分钟。
+# 公开仓库 Actions 分钟数不计费，因此这点消耗不产生费用。
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: restock-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 由模板 + Secrets 生成 config.json
+        env:
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          FEISHU_SECRET: ${{ secrets.FEISHU_SECRET }}
+        run: python3 ci_bootstrap.py
+
+      - name: 恢复上次状态
+        uses: actions/cache/restore@v4
+        with:
+          path: state.json
+          key: state-${{ github.run_id }}
+          restore-keys: |
+            state-
+
+      - name: 循环检查（4 分钟内每 60 秒一次）
+        run: python3 monitor.py run --duration 240 --interval 60
+
+      - name: 保存状态
+        if: always() && hashFiles('state.json') != ''
+        uses: actions/cache/save@v4
+        with:
+          path: state.json
+          key: state-${{ github.run_id }}
