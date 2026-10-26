@@ -1,0 +1,19 @@
+[Unit]
+Description=tobaccolifestyle restock monitor
+Documentation=https://github.com/your/repo
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# 按实际部署路径修改
+WorkingDirectory=/opt/tobacco-monitor
+ExecStart=/usr/bin/python3 /opt/tobacco-monitor/monitor.py watch
+Restart=always
+RestartSec=30
+Environment=PYTHONUNBUFFERED=1
+# 若用环境变量注入凭据（推荐），取消下面注释并从 EnvironmentFile 读取
+# EnvironmentFile=/opt/tobacco-monitor/.env
+
+[Install]
+WantedBy=multi-user.target
