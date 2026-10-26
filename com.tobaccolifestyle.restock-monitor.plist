@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.tobaccolifestyle.restock-monitor</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/zhangjian/.workbuddy/binaries/python/versions/3.13.12/bin/python3</string>
+        <string>/Users/zhangjian/WorkBuddy/2026-10-26-14-21-09/tobacco-monitor/monitor.py</string>
+        <string>check</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/zhangjian/WorkBuddy/2026-10-26-14-21-09/tobacco-monitor</string>
+
+    <key>StartInterval</key>
+    <integer>60</integer>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/zhangjian/WorkBuddy/2026-10-26-14-21-09/tobacco-monitor/monitor.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/zhangjian/WorkBuddy/2026-10-26-14-21-09/tobacco-monitor/monitor.log</string>
+</dict>
+</plist>
