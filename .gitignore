@@ -1,0 +1,9 @@
+# 真实凭据与运行数据不入库
+config.json
+state.json
+monitor.log
+
+# Python
+__pycache__/
+*.pyc
+.DS_Store
